@@ -13,6 +13,7 @@ import { useInput } from '../hooks/useInput'
 import InputImage from '../components/form/InputImage'
 import Location from '../components/Location'
 import { useNavigate } from 'react-router-dom'
+import { postProgram } from '../api/api'
 
 const Step1 = ({ onNext }) => {
   const categoryEntries = Object.entries(categories)
@@ -194,13 +195,27 @@ export default function Register() {
     })
     setStep(step + 1)
   }
-  const handleSubmit = data => {
+  const handleSubmit = async data => {
     setFormData(prevData => {
       const newData = { ...prevData, ...data }
       return newData
     })
-    console.log(formData)
-    navigate('/ownersuccess')
+    const finalFormData = new FormData()
+    Object.keys(formData).forEach(key => {
+      if (key === 'images') {
+        formData[key].forEach((image, index) => {
+          finalFormData.append(`images[${index}]`, image)
+        })
+      } else {
+        finalFormData.append(key, formData[key])
+      }
+    })
+    try {
+      await postProgram(finalFormData)
+      navigate('/ownersuccess')
+    } catch (error) {
+      console.error('POST 실패', error)
+    }
   }
   useEffect(() => {
     console.log('폼 업뎃!', formData)

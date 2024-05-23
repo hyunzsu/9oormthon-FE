@@ -20,6 +20,20 @@ export const postData = async data => {
   }
 }
 
+export const postProgram = async data => {
+  try {
+    const response = await axiosInstance.post('/programs/add', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.error('Error posting data:', error)
+    throw error
+  }
+}
+
 export const fetchSpaces = async () => {
   try {
     const response = await axiosInstance.get('/spaces')
