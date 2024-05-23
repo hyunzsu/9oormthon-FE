@@ -14,6 +14,7 @@ import Location from '../components/Location'
 import { useNavigate } from 'react-router-dom'
 
 const Step1 = ({ onNext }) => {
+  const categoryEntries = Object.entries(categories)
   const [category, setCategory] = useState('')
   const handleCategoryChange = e => {
     setCategory(e.target.value)
@@ -27,32 +28,33 @@ const Step1 = ({ onNext }) => {
         mainText={'어떤 목적의 공간인가요?'}
         subText={'게스트가 용도에 맞게 선택할 수 있어요'}
       />
-      <div className="grid grid-cols-2">
-        {categories.map(item => (
-          <label key={item}>
+      <div className="grid grid-cols-2 gap-[16px] mb-[40px]">
+        {categoryEntries.map(([key, item]) => (
+          <label
+            key={key}
+            className={`relative drop-shadow-md flex flex-col gap-[12px] justify-center items-center h-[158px] bg-[#F6F6F6] rounded-lg ${category === key ? 'border-[1px] border-black' : ''}`}
+          >
             <input
               type="radio"
               name="category"
-              value={item}
-              checked={category === item}
+              value={key}
+              checked={category === key}
               onChange={handleCategoryChange}
+              className="a11yHidden"
             />
-            {item}
-            <img
-              alt={item}
-              src="https://cdn.hankyung.com/photo/202209/01.31363897.1.jpg"
-              width="100%"
-              height="100%"
-            />
+
+            {category === key && (
+              <img
+                src="/src/assets/i-select.svg"
+                className="absolute top-[10px] right-[10px]"
+              />
+            )}
+            <img alt={item.name} src={item.img} className="w-[84px] h-[84px]" />
+            <span className="text-[14px]">{item.name}</span>
           </label>
         ))}
       </div>
-      <Button
-        type="button"
-        onClick={handleNext}
-        text="다음"
-        status={category === '' && 'disabled'}
-      />
+      {category && <Button type="button" onClick={handleNext} text="다음" />}
     </section>
   )
 }
@@ -153,10 +155,10 @@ export default function Register() {
   }, [formData])
 
   return (
-    <div>
+    <main className="px-[20px]">
       {step === 1 && <Step1 onNext={handleNext} />}
       {step === 2 && <Step2 onNext={handleNext} />}
       {step === 3 && <Step3 onSubmit={handleSubmit} />}
-    </div>
+    </main>
   )
 }
