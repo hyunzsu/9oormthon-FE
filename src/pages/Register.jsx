@@ -6,6 +6,7 @@ import { keywords } from '../constants/keywords'
 import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+import { InputEmail, InputText } from '../components/form/input'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
@@ -148,6 +149,17 @@ const Step3 = ({ onNext }) => {
   )
 }
 
+const Step4 = ({ onSubmit }) => {
+  return (
+    <section className="flex flex-col">
+      <Title mainText={'공간의 상세 정보를 입력해주세요.'} />
+      <InputText title={'빈 공간의 이름을 알려주세요.'} />
+      <InputEmail />
+      <Button type="button" onClick={onSubmit} text="등록 완료하기" />
+    </section>
+  )
+}
+
 export default function Register() {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({})
@@ -170,6 +182,7 @@ export default function Register() {
       {step === 1 && <Step1 onNext={handleNext} />}
       {step === 2 && <Step2 onNext={handleNext} />}
       {step === 3 && <Step3 onNext={handleNext} />}
+      {step === 4 && <Step4 onSubmit={handleSubmit} />}
     </div>
   )
 }
