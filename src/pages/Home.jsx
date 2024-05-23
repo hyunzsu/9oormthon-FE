@@ -7,6 +7,7 @@ export default function Home() {
     <div>
       <Filter />
       <Products />
+      <button>내 공간 등록하기</button>
     </div>
   )
 }
