@@ -7,6 +7,7 @@ import { categories } from '../constants/categories'
 import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+import '../styles/Calendar.css' // 커스텀 CSS 파일 import
 import parseDate from '../utils/parseDate'
 import { useInput } from '../hooks/useInput'
 import InputImage from '../components/form/InputImage'
@@ -76,27 +77,38 @@ const Step2 = ({ onNext }) => {
   }
   return (
     <section className="flex flex-col relative">
-      <Title
-        mainText={'일멍님! 공간이 비어있는 기간을 알려주세요.'}
-        subText={'대여 가능한 범위를 설정해주세요.'}
-      />
+      <Title mainText={'프로그램의 시간과 날짜를\n알려주세요.'} />
       <DatePicker
         selected={startDate}
         onChange={onChange}
         startDate={startDate}
         endDate={endDate}
         minDate={new Date()}
-        maxDate={addMonths(new Date(), 5)}
-        excludeDates={[addDays(new Date(), 1), addDays(new Date(), 5)]}
-        selectsRange
-        inline
+        maxDate={addMonths(new Date(), 3)}
+        selectsRange // 날짜 범위 선택 기능 활성화
+        inline // 캘린더를 인라인으로 표시
+        calendarClassName="custom-calendar" // 커스텀 CSS 클래스 추가
+        renderCustomHeader={({ monthDate, decreaseMonth, increaseMonth }) => (
+          <div className="custom-header">
+            <button onClick={decreaseMonth}>
+              <img src="/src/assets/i-arrow.svg" />
+            </button>
+            <span className="react-datepicker__current-month">
+              {monthDate.toLocaleString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+              })}
+            </span>
+            <button onClick={increaseMonth}>
+              <img src="/src/assets/i-arrow.svg" className="rotate-180" />
+            </button>
+          </div>
+        )}
+        formatWeekDay={nameOfDay => nameOfDay.substr(0, 3).toUpperCase()}
       />
-      <Button
-        type="button"
-        onClick={handleNext}
-        text="다음"
-        status={!startDate || !endDate ? 'disabled' : undefined}
-      />
+      {!startDate || !endDate || (
+        <Button type="button" onClick={handleNext} text="다음" />
+      )}
     </section>
   )
 }
