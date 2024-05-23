@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 import { InputEmail, InputText } from '../components/form/input'
+import parseDate from '../utils/parseDate'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
@@ -120,7 +121,11 @@ const Step3 = ({ onNext }) => {
     setEndDate(end)
   }
   const handleNext = () => {
-    onNext({ startDate, endDate })
+    if (startDate && endDate) {
+      const start = parseDate(startDate)
+      const end = parseDate(endDate)
+      onNext({ start, end })
+    }
   }
   return (
     <section className="flex flex-col">
