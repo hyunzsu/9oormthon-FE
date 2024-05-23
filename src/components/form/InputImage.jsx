@@ -19,7 +19,7 @@ export default function InputImage({ photos, setPhotos }) {
   }
 
   return (
-    <div className="flex">
+    <div className="flex mb-[12px]">
       <button
         type="button"
         onClick={handleUploadClick}

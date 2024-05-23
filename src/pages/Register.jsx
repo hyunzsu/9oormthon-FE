@@ -64,6 +64,7 @@ const Step2 = ({ onNext }) => {
   const [start, setStart] = useState(null)
   const [end, setEnd] = useState(null)
   const [time, setTime] = useInput('')
+  const [spendTime, setSpendTime] = useInput('')
   const onDateChange = dates => {
     const [startDate, endDate] = dates
     setStart(startDate)
@@ -71,7 +72,7 @@ const Step2 = ({ onNext }) => {
   }
   const handleNext = () => {
     const startDate = `${parseDate(start)} ${time}`
-    onNext({ startDate })
+    onNext({ startDate, spendTime })
   }
   return (
     <section className="flex flex-col relative">
@@ -109,6 +110,12 @@ const Step2 = ({ onNext }) => {
           value={time}
           onChange={setTime}
         />
+        <InputText
+          title="진행 시간을 입력해주세요."
+          placeholder="1"
+          value={spendTime}
+          onChange={setSpendTime}
+        />
       </div>
       {!start || !time || (
         <Button type="button" onClick={handleNext} text="다음" />
@@ -118,31 +125,60 @@ const Step2 = ({ onNext }) => {
 }
 
 const Step3 = ({ onSubmit }) => {
-  const [name, handleName] = useInput('')
-  const [address, setAddress] = useState('')
+  const [programName, handleProgramName] = useInput('')
   const [description, setDescription] = useInput('')
-  const [photos, setPhotos] = useState([])
-  const [email, handleEmail] = useInput('')
+  const [hostDescription, setHostDescription] = useInput('')
+  const [price, setPrice] = useInput('')
+  const [chatLink, setChatLink] = useInput('')
+  const [roadNameAddress, setRoadNameAddress] = useState('')
+  const [images, setImages] = useState([])
+  const [hostEmail, handleEmail] = useInput('')
   const handleSubmit = () => {
-    onSubmit({ name, address, description, photos, email })
+    onSubmit({
+      programName,
+      description,
+      hostDescription,
+      price,
+      chatLink,
+      roadNameAddress,
+      images,
+      hostEmail,
+    })
   }
   return (
     <section className="flex flex-col">
-      <Title mainText={'공간의 상세 정보를 입력해주세요.'} />
+      <Title mainText={'프로그램 정보를 입력해주세요.'} />
       <InputText
-        title={'빈 공간의 이름을 알려주세요.'}
-        value={name}
-        onChange={handleName}
+        title={'프로그램 명을 입력해주세요.'}
+        value={programName}
+        onChange={handleProgramName}
       />
-      <Location address={address} setAddress={setAddress} />
       <TextArea
-        title={'공간을 소개해주세요.'}
+        title={'프로그램을 소개해주세요.'}
         value={description}
         onChange={setDescription}
       />
-      <InputImage photos={photos} setPhotos={setPhotos} />
-      <InputEmail value={email} onChange={handleEmail} />
-      <Button type="button" onClick={handleSubmit} text="등록 완료하기" />
+      <TextArea
+        title={'나를 소개해주세요!'}
+        value={hostDescription}
+        onChange={setHostDescription}
+      />
+      <InputImage photos={images} setPhotos={setImages} />
+      <InputText title={'가격'} value={price} onChange={setPrice} />
+      <Location address={roadNameAddress} setAddress={setRoadNameAddress} />
+      <InputEmail value={hostEmail} onChange={handleEmail} />
+      <InputText
+        title={'오픈 채팅창 주소가 있나요? (선택)'}
+        value={chatLink}
+        onChange={setChatLink}
+      />
+      <button
+        type="button"
+        onClick={handleSubmit}
+        className="bg-black font-semibold text-white text-[16px] rounded-[30px] w-[calc(100%-40px)] max-w-[350px] h-[50px] m-[20px]"
+      >
+        등록 완료하기
+      </button>
     </section>
   )
 }

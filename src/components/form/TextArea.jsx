@@ -4,7 +4,8 @@ export default function TextArea({ title, placeholder, value, onChange }) {
       <p>{title}</p>
       <textarea
         placeholder={placeholder}
-        className="resize-none"
+        className="resize-none border border-gray-300 rounded p-2 w-full mt-[14px]"
+        maxLength={300}
         value={value}
         onChange={onChange}
       />

@@ -1,6 +1,6 @@
 function Input({ id, name, type, title, placeholder, value, onChange }) {
   return (
-    <label htmlFor={id}>
+    <label htmlFor={id} className="mb-[12px]">
       <p>{title}</p>
       <input
         id={id}
@@ -9,7 +9,7 @@ function Input({ id, name, type, title, placeholder, value, onChange }) {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="border border-gray-300 rounded p-2 w-full mt-[14px]"
+        className="border border-gray-300 rounded p-2 w-full mt-[6px]"
       />
     </label>
   )

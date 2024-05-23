@@ -9,10 +9,18 @@ export default function Location({ address, setAddress }) {
   }
   return (
     <>
-      <label onClick={() => setOpenModal(true)}>
+      <label onClick={() => setOpenModal(true)} className="relative">
         <p>빈 공간 위치</p>
-        <input type="text" value={address} readOnly />
-        <i>🔎</i>
+        <input
+          className="border border-gray-300 rounded p-2 w-full mt-[6px]"
+          type="text"
+          value={address}
+          readOnly
+        />
+        <img
+          src="/src/assets/i-search.svg"
+          className="absolute right-[4px] w-[24px] h-[24px] bottom-[9px]"
+        />
       </label>
       {openModal && (
         <div className="z-100 inset-0 fixed flex justify-center items-center bg-black bg-opacity-40">
