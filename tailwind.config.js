@@ -11,6 +11,7 @@ export default {
         extrabold: '800',
       },
       colors: {
+        primary: '#b0d174',
         black: '#222222',
         white: '#ffffff',
       },
