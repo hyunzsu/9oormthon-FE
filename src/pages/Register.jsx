@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import TextArea from '../components/form/TextArea'
-import { InputEmail, InputText } from '../components/form/Input'
+import { InputEmail, InputNumber, InputText } from '../components/form/Input'
 import { categories } from '../constants/categories'
 import DatePicker from 'react-datepicker'
 import { addMonths } from 'date-fns'
@@ -111,7 +111,7 @@ const Step2 = ({ onNext }) => {
           value={time}
           onChange={setTime}
         />
-        <InputText
+        <InputNumber
           title="진행 시간을 입력해주세요."
           placeholder="1"
           value={spendTime}
@@ -165,7 +165,7 @@ const Step3 = ({ onSubmit }) => {
         onChange={setHostDescription}
       />
       <InputImage photos={images} setPhotos={setImages} />
-      <InputText title={'가격'} value={price} onChange={setPrice} />
+      <InputNumber title={'가격'} value={price} onChange={setPrice} />
       <Location address={roadNameAddress} setAddress={setRoadNameAddress} />
       <InputEmail value={hostEmail} onChange={handleEmail} />
       <InputText

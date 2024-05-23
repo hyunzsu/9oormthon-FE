@@ -29,6 +29,20 @@ export function InputText({ title, placeholder, value, onChange }) {
   )
 }
 
+export function InputNumber({ title, placeholder, value, onChange }) {
+  return (
+    <Input
+      id="number"
+      name="number"
+      type="number"
+      title={title}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
+  )
+}
+
 export function InputPhoneNumber({ value, onChange }) {
   return (
     <Input
