@@ -3,14 +3,14 @@ import ProductCard from './ProductCard'
 
 export default function Products() {
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col gap-2">
       <ProductCard id={100} />
-      {/* <ProductCard id={2} />
+      <ProductCard id={2} />
       <ProductCard />
       <ProductCard />
       <ProductCard />
       <ProductCard />
-      <ProductCard /> */}
+      <ProductCard />
     </div>
   )
 }

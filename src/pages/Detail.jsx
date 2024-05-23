@@ -16,15 +16,27 @@ export default function Detail() {
   return (
     <section className="h-screen overflow-auto">
       <h1>상세 페이지 {id}</h1>
-      <img src="/src/assets/react.svg" alt="상품 이미지" className="w-full" />
+      <img
+        src="/src/assets/i-activity.svg"
+        alt="상품 이미지"
+        className="w-full"
+      />
       <div className="border-2 border-black flex flex-col gap-[15px] rounded-3xl p-[25px]">
         <div>
-          <h2 className="font-bold mb-[15px]">플레이스 캠프 제주</h2>
-          <Link>제주 서귀포시 성산읍 독룡암 20</Link>
-          <div className="mt-[12px]">24일(금) 오후 6시</div>
+          <h2 className="font-bold mb-[15px] text-20">
+            제주 오름뷰 요가 원데이클래스!
+          </h2>
+          <div className="flex gap-[9px]">
+            <img src="/src/assets/i-location.svg" alt="" />
+            <Link>제주 서귀포시 성산읍 독룡암 20</Link>
+          </div>
+          <div className="flex gap-[9px] mt-[10px]">
+            <img src="/src/assets/i-time.svg" alt="" />
+            <div>5월 24일(금) 오후 6시</div>
+          </div>
         </div>
         <div>
-          <h3 className="font-bold mb-[6px]">공간 소개</h3>
+          <h3 className="font-bold mb-[6px]">프로그램 소개</h3>
           <p>
             플레이스에 호텔이라는 적막한 이름은 어울리지 않습니다. 플레이스의 그
             어디에서도 점잔 빼며 또각또각 걷기를 권하지 않으니까요. 온전히 당신
@@ -39,7 +51,7 @@ export default function Detail() {
         <ScrollContainer>
           <div className="whitespace-nowrap mt-[22px] mb-[70px]">
             <img
-              src="/src/assets/react.svg"
+              src="/src/assets/i-activity.svg"
               alt="프로그램 사진 2"
               className="w-[126px] inline-block"
             />
@@ -68,12 +80,12 @@ export default function Detail() {
       </div>
       <div className="w-full h-[90px] fixed bottom-0 bg-white max-w-[430px] flex items-center justify-between px-[26px]">
         <div>
-          <span className="font-bold">10,000원</span>
+          <span className="font-bold text-20">10,000원</span>
           <span> / 1인</span>
         </div>
         <button
           onClick={handleClick}
-          className="w-[190px] h-[50px] bg-primary rounded-3xl text-white cursor-pointer"
+          className="w-[190px] h-[50px] bg-black rounded-3xl text-white cursor-pointer"
         >
           예약하기
         </button>
