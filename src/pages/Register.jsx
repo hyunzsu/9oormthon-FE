@@ -6,7 +6,7 @@ import { keywords } from '../constants/keywords'
 import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
-import { InputEmail, InputText } from '../components/form/input'
+import { InputEmail, InputText } from '../components/form/Input'
 import parseDate from '../utils/parseDate'
 import { useInput } from '../hooks/useInput'
 
