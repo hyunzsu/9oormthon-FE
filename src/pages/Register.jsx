@@ -7,11 +7,6 @@ import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 
-// Step1 카테고리
-// Step2 키워드
-// Step3 기간
-// Step4 상세 정보
-
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
   const handleCategoryChange = e => {
@@ -46,7 +41,12 @@ const Step1 = ({ onNext }) => {
           </label>
         ))}
       </div>
-      <Button type="button" onClick={handleNext} text="다음" />
+      <Button
+        type="button"
+        onClick={handleNext}
+        text="다음"
+        status={category === '' && 'disabled'}
+      />
     </section>
   )
 }
@@ -58,6 +58,7 @@ const Step2 = ({ onNext }) => {
       checked: false,
     })),
   )
+  const [count, setCount] = useState(0)
   const handleCheck = e => {
     const value = e.target.value
     setKeywordList(prev =>
@@ -67,6 +68,7 @@ const Step2 = ({ onNext }) => {
     )
     if (e.target.checked) {
       setKeywordList(prev => [...prev, value])
+      setCount(prev => prev + 1)
     }
   }
   const handleNext = () => {
@@ -98,7 +100,12 @@ const Step2 = ({ onNext }) => {
           </label>
         ))}
       </div>
-      <Button type="button" onClick={handleNext} text="다음" />
+      <Button
+        type="button"
+        onClick={handleNext}
+        text="다음"
+        status={count === 0 && 'disabled'}
+      />
     </section>
   )
 }
@@ -131,7 +138,12 @@ const Step3 = ({ onNext }) => {
         selectsRange
         inline
       />
-      <Button type="button" onClick={handleNext} text="다음" />
+      <Button
+        type="button"
+        onClick={handleNext}
+        text="다음"
+        status={!startDate || !endDate ? 'disabled' : undefined}
+      />
     </section>
   )
 }
@@ -158,7 +170,6 @@ export default function Register() {
       {step === 1 && <Step1 onNext={handleNext} />}
       {step === 2 && <Step2 onNext={handleNext} />}
       {step === 3 && <Step3 onNext={handleNext} />}
-      {step > 3 && <button onClick={handleSubmit}>제출</button>}
     </div>
   )
 }
