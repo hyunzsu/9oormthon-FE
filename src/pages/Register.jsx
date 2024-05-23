@@ -25,8 +25,8 @@ const Step1 = ({ onNext }) => {
   return (
     <section className="flex flex-col">
       <Title
-        mainText={'어떤 목적의 공간인가요?'}
-        subText={'게스트가 용도에 맞게 선택할 수 있어요'}
+        mainText={'어떤 프로그램인가요?'}
+        subText={'프로그램의 성격을 알려주세요.'}
       />
       <div className="grid grid-cols-2 gap-[16px] mb-[40px]">
         {categoryEntries.map(([key, item]) => (

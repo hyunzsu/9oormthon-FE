@@ -1,26 +1,26 @@
 export const categories = {
-  CAFE: {
-    name: '카페',
-    img: '/src/assets/i-cafe.svg',
+  A: {
+    name: '요리/조리',
+    img: '/src/assets/i-cook.svg',
   },
   B: {
-    name: '숙박시설',
-    img: '/src/assets/i-studio.svg',
+    name: '운동',
+    img: '/src/assets/i-health.svg',
   },
   C: {
-    name: '세미나',
-    img: '/src/assets/i-seminar.svg',
+    name: '체험/액티비티',
+    img: '/src/assets/i-activity.svg',
   },
   D: {
-    name: '공유오피스',
-    img: '/src/assets/i-office.svg',
+    name: '강연',
+    img: '/src/assets/i-lecture.svg',
   },
   E: {
-    name: '스튜디오',
-    img: '/src/assets/i-studio.svg',
+    name: '예술',
+    img: '/src/assets/i-art.svg',
   },
   F: {
-    name: '스터디룸',
-    img: '/src/assets/i-studyroom.svg',
+    name: '기타',
+    img: '/src/assets/i-etc.svg',
   },
 }
