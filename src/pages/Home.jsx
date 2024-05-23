@@ -1,9 +1,12 @@
 import React from 'react'
+import Products from '../components/products/Products'
+import Filter from '../components/products/Filter'
 
 export default function Home() {
   return (
     <div>
-      <h1>Home 🏡</h1>
+      <Filter />
+      <Products />
     </div>
   )
 }
