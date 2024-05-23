@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import { categories } from '../constants/categories'
+import { keywords } from '../constants/keywords'
 
 // Step1 카테고리
 // Step2 키워드
@@ -16,7 +17,6 @@ const Step1 = ({ onNext }) => {
   const handleNext = () => {
     onNext({ category })
   }
-
   return (
     <section>
       <Title
@@ -49,9 +49,28 @@ const Step1 = ({ onNext }) => {
 }
 
 const Step2 = ({ onNext }) => {
-  const [keyword, setKeyword] = useState('')
+  const [keywordList, setKeywordList] = useState(
+    keywords.map(keyword => ({
+      keyword,
+      checked: false,
+    })),
+  )
+  const handleCheck = e => {
+    const value = e.target.value
+    setKeywordList(prev =>
+      prev.map(item =>
+        item.keyword === value ? { ...item, checked: e.target.checked } : item,
+      ),
+    )
+    if (e.target.checked) {
+      setKeywordList(prev => [...prev, value])
+    }
+  }
   const handleNext = () => {
-    onNext({ keyword })
+    const selectedKeywords = keywordList
+      .filter(item => item.checked)
+      .map(item => item.keyword)
+    onNext({ keywords: selectedKeywords })
   }
   return (
     <section>
@@ -59,11 +78,22 @@ const Step2 = ({ onNext }) => {
         mainText={'공간에 대해 알려주세요!'}
         subText={'공간을 빠르게 파악할 수 있어요. *중복선택가능'}
       />
-      <div>
-        <select value={keyword} onChange={e => setKeyword(e.target.value)}>
-          <option value="카페">카페</option>
-          <option value="숙박시설">숙박시설</option>
-        </select>
+      <div className="flex flex-wrap">
+        {keywords.map(item => (
+          <label key={item}>
+            <input
+              type="checkbox"
+              name="keyword"
+              value={item}
+              checked={keywordList.includes(item)}
+              onChange={handleCheck}
+              className="a11yHidden peer"
+            />
+            <div className="p-2 bg-gray-200 m-2 rounded peer-checked:bg-blue-500 peer-checked:text-white">
+              {item}
+            </div>
+          </label>
+        ))}
       </div>
       <Button type="button" onClick={handleNext} text="다음" />
     </section>
@@ -90,14 +120,20 @@ export default function Register() {
   const [formData, setFormData] = useState({})
 
   const handleNext = data => {
-    setFormData({ ...formData, ...data })
+    setFormData(prevData => {
+      const newData = { ...prevData, ...data }
+      return newData
+    })
     setStep(step + 1)
-    console.log(formData)
   }
 
   const handleSubmit = () => {
     console.log(formData)
   }
+
+  useEffect(() => {
+    console.log('폼 업뎃!', formData)
+  }, [formData])
 
   return (
     <div>

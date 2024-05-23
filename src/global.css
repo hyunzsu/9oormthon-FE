@@ -12,3 +12,7 @@
   margin: -1px;
   position: absolute !important;
 }
+
+label {
+  cursor: pointer;
+}
