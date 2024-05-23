@@ -2,9 +2,8 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Button({ text, type, status, onClick }) {
   const baseStyles =
-    'fixed px-4 py-2 font-semibold text-black rounded bottom-2 w-[267px] rounded-3xl'
-  const activeStyles =
-    'bg-primary hover:bg-black hover:text-white border-2 border-black'
+    'fixed px-4 py-2 font-semibold text-white rounded bottom-[45px] w-[267px] h-[41px] rounded-3xl text-14 drop-shadow-md'
+  const activeStyles = 'bg-primary hover:bg-black hover:text-white'
   const disabledStyles = 'bg-gray-400 cursor-not-allowed'
   const computedStyles = status === 'disabled' ? disabledStyles : activeStyles
 

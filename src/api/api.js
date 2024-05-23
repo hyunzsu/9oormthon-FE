@@ -19,3 +19,13 @@ export const postData = async data => {
     throw error
   }
 }
+
+export const fetchSpaces = async () => {
+  try {
+    const response = await axiosInstance.get('/spaces')
+    return response.data
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    throw error
+  }
+}
