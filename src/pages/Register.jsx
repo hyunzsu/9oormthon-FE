@@ -8,6 +8,7 @@ import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 import { InputEmail, InputText } from '../components/form/input'
 import parseDate from '../utils/parseDate'
+import { useInput } from '../hooks/useInput'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
@@ -155,12 +156,22 @@ const Step3 = ({ onNext }) => {
 }
 
 const Step4 = ({ onSubmit }) => {
+  const [name, handleName] = useInput('')
+  const [email, handleEmail] = useInput('')
+  const handleSubmit = () => {
+    onSubmit({ name, email })
+  }
+
   return (
     <section className="flex flex-col">
       <Title mainText={'공간의 상세 정보를 입력해주세요.'} />
-      <InputText title={'빈 공간의 이름을 알려주세요.'} />
-      <InputEmail />
-      <Button type="button" onClick={onSubmit} text="등록 완료하기" />
+      <InputText
+        title={'빈 공간의 이름을 알려주세요.'}
+        value={name}
+        onChange={handleName}
+      />
+      <InputEmail value={email} onChange={handleEmail} />
+      <Button type="button" onClick={handleSubmit} text="등록 완료하기" />
     </section>
   )
 }
@@ -175,7 +186,11 @@ export default function Register() {
     })
     setStep(step + 1)
   }
-  const handleSubmit = () => {
+  const handleSubmit = data => {
+    setFormData(prevData => {
+      const newData = { ...prevData, ...data }
+      return newData
+    })
     console.log(formData)
   }
   useEffect(() => {
