@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import Button from '../components/Button'
+import { InputEmail, InputText } from '../components/form/input'
 import { categories } from '../constants/categories'
 import { keywords } from '../constants/keywords'
+import parseDate from '../utils/parseDate'
+import { useInput } from '../hooks/useInput'
 import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
-import { InputEmail, InputText } from '../components/form/input'
-import parseDate from '../utils/parseDate'
-import { useInput } from '../hooks/useInput'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
