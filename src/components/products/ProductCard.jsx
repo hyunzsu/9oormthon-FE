@@ -9,18 +9,22 @@ export default function ProductCard({ id }) {
   }
 
   return (
-    <div
-      onClick={handleClick}
-      className="cursor-pointer flex justify-between w-[353px] h-[123px] border-2 border-black mx-auto my-0"
-    >
-      <img src="/src/assets/react.svg" alt="상품 이미지" />
-      <div className="flex flex-col">
-        <h2 className="font-bold">플레이스 캠프 제주</h2>
-        <p>활기차고 열정적인 분위기예요!</p>
-        <button className="border-gray-400 border-2 w-[90px] h-[26px] mt-auto ml-auto rounded-xl">
-          예약하기
-        </button>
+    <div className="flex w-full h-[123px] bg-[#F6F7F5] rounded-[10px]">
+      <img
+        src="/src/assets/i-cafe.svg"
+        alt="상품 이미지"
+        className="w-[86px] h-[86px] m-auto"
+      />
+      <div className="flex flex-col mt-[15px] ml-[13px]">
+        <h2 className="font-bold text-16">플레이스 캠프 제주</h2>
+        <p className="text-12 text-[#666666]">5월 24일(금) 오후 6시</p>
       </div>
+      <button
+        onClick={handleClick}
+        className="w-[90px] h-[26px] mt-auto ml-auto rounded-[16px] text-10 mr-[14px] mb-[16px] bg-primary text-white"
+      >
+        참여하기
+      </button>
     </div>
   )
 }

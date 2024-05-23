@@ -6,8 +6,9 @@ import ReserveButton from '../components/products/ReserveButton'
 
 export default function Space() {
   return (
-    <div>
-      <Filter />
+    <div className="p-[20px] flex flex-col items-center">
+      <h1>Logo</h1>
+      {/* <Filter /> */}
       <Products />
       <ReserveButton />
     </div>
