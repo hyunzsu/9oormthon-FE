@@ -14,7 +14,7 @@ export default function Detail() {
   }
 
   return (
-    <section>
+    <section className="h-screen overflow-auto">
       <h1>상세 페이지 {id}</h1>
       <img src="/src/assets/react.svg" alt="상품 이미지" className="w-full" />
       <div className="border-2 border-black flex flex-col gap-[15px] rounded-3xl p-[25px]">
@@ -37,7 +37,7 @@ export default function Detail() {
           <p>저희 프로그램에 참여해서 청년들의 열정을 느껴보세요!</p>
         </div>
         <ScrollContainer>
-          <div className="whitespace-nowrap mt-[22px]">
+          <div className="whitespace-nowrap mt-[22px] mb-[70px]">
             <img
               src="/src/assets/react.svg"
               alt="프로그램 사진 2"
@@ -66,10 +66,15 @@ export default function Detail() {
           </div>
         </ScrollContainer>
       </div>
-      {/* <Button type="button" text="예약하기" onClick={handleClick} /> */}
-      <div className="w-full h-[90px]">
-        <span>10,000원 / 1인</span>
-        <button className="w-[190px] h-[50px] bg-primary rounded-3xl text-white">
+      <div className="w-full h-[90px] fixed bottom-0 bg-white max-w-[430px] flex items-center justify-between px-[26px]">
+        <div>
+          <span className="font-bold">10,000원</span>
+          <span> / 1인</span>
+        </div>
+        <button
+          onClick={handleClick}
+          className="w-[190px] h-[50px] bg-primary rounded-3xl text-white cursor-pointer"
+        >
           예약하기
         </button>
       </div>
