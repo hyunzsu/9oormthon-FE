@@ -8,6 +8,10 @@ import { keywords } from '../constants/keywords'
 import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+import parseDate from '../utils/parseDate'
+import { useInput } from '../hooks/useInput'
+import InputImage from '../components/form/InputImage'
+import Location from '../components/Location'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
