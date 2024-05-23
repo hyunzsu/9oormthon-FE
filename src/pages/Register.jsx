@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import Button from '../components/Button'
+import TextArea from '../components/form/TextArea'
+import { InputEmail, InputText } from '../components/form/Input'
 import { categories } from '../constants/categories'
 import { keywords } from '../constants/keywords'
 import DatePicker from 'react-datepicker'
 import { addDays, addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
-import { InputEmail, InputText } from '../components/form/Input'
-import parseDate from '../utils/parseDate'
-import { useInput } from '../hooks/useInput'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
@@ -129,7 +128,7 @@ const Step3 = ({ onNext }) => {
     }
   }
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col relative">
       <Title
         mainText={'일멍님! 공간이 비어있는 기간을 알려주세요.'}
         subText={'대여 가능한 범위를 설정해주세요.'}
@@ -157,11 +156,13 @@ const Step3 = ({ onNext }) => {
 
 const Step4 = ({ onSubmit }) => {
   const [name, handleName] = useInput('')
+  const [address, setAddress] = useState('')
+  const [description, setDescription] = useInput('')
+  const [photos, setPhotos] = useState([])
   const [email, handleEmail] = useInput('')
   const handleSubmit = () => {
-    onSubmit({ name, email })
+    onSubmit({ name, address, description, photos, email })
   }
-
   return (
     <section className="flex flex-col">
       <Title mainText={'공간의 상세 정보를 입력해주세요.'} />
@@ -170,6 +171,13 @@ const Step4 = ({ onSubmit }) => {
         value={name}
         onChange={handleName}
       />
+      <Location address={address} setAddress={setAddress} />
+      <TextArea
+        title={'공간을 소개해주세요.'}
+        value={description}
+        onChange={setDescription}
+      />
+      <InputImage photos={photos} setPhotos={setPhotos} />
       <InputEmail value={email} onChange={handleEmail} />
       <Button type="button" onClick={handleSubmit} text="등록 완료하기" />
     </section>
@@ -192,6 +200,7 @@ export default function Register() {
       return newData
     })
     console.log(formData)
+    navigate('/register/success')
   }
   useEffect(() => {
     console.log('폼 업뎃!', formData)
