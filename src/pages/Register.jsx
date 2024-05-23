@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import Button from '../components/Button'
-import { InputEmail, InputText } from '../components/form/input'
+import { InputEmail, InputText } from '../components/form/Input'
 import { categories } from '../constants/categories'
 import { keywords } from '../constants/keywords'
 import parseDate from '../utils/parseDate'
