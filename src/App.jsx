@@ -4,6 +4,7 @@ import Register from './pages/Register'
 import Detail from './pages/Detail'
 import Space from './pages/Space'
 import Reservation from './pages/Reservation'
+import UserSuccess from './pages/UserSuccess'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/products" element={<Space />} />
         <Route path="/products/:id" element={<Detail />} />
         <Route path="/products/:id/reservation" element={<Reservation />} />
+        <Route path="/usersuccess" element={<UserSuccess />} />
       </Routes>
     </div>
   )
