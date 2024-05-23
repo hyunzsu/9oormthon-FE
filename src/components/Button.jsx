@@ -1,7 +1,7 @@
 export default function Button({ text, type, status, onClick }) {
   const baseStyles =
-    'fixed px-4 py-2 font-semibold text-white rounded fixed bottom-2 w-[calc(100%-40px)] max-w-[390px] m-[20px]'
-  const activeStyles = 'bg-blue-500 hover:bg-blue-700'
+    'fixed bottom-[34px] font-semibold text-white text-[16px] rounded-[30px] w-[calc(100%-80px)] max-w-[350px] h-[50px] mx-[20px]'
+  const activeStyles = 'bg-black hover:bg-black'
   const disabledStyles = 'bg-gray-400 cursor-not-allowed'
   const computedStyles = status === 'disabled' ? disabledStyles : activeStyles
   return (
