@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Button from '../components/Button'
 
 export default function Detail() {
   const { id } = useParams()
@@ -43,7 +44,7 @@ export default function Detail() {
           <img src="/src/assets/react.svg" alt="숙소 사진 4" />
         </div>
       </div>
-      <button>예약하기</button>
+      <Button type="button" text="예약하기" />
     </section>
   )
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-const categories = ['카페', '숙박시설', '컨퍼런스룸', '코워킹', '스튜디오']
+import { categories } from '../../constants/categories'
 
 export default function Filter() {
   return (
