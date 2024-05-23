@@ -212,7 +212,7 @@ export default function Register() {
     })
     try {
       await postProgram(finalFormData)
-      navigate('/ownersuccess')
+      navigate('/hostsuccess')
     } catch (error) {
       console.error('POST 실패', error)
     }
