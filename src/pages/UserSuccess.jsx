@@ -33,7 +33,7 @@ export default function UserSuccess() {
         <div className="space-y-5">
           <div className="flex justify-between">
             <span className="text-gray-700">예약자명</span>
-            <span className="text-gray-600">{reservationData.name}</span>
+            <span className="text-gray-600">{reservationData.guestName}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-700">날짜 및 시간</span>
@@ -43,7 +43,7 @@ export default function UserSuccess() {
           </div>
           <div className="flex justify-between">
             <span className="text-gray-700">이메일</span>
-            <span className="text-gray-600">{reservationData.email}</span>
+            <span className="text-gray-600">{reservationData.guestEmail}</span>
           </div>
         </div>
       </div>
