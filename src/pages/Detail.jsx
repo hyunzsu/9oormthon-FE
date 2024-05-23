@@ -1,9 +1,17 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Button from '../components/Button'
+import ScrollContainer from 'react-indiana-drag-scroll'
+import { useNavigate } from 'react-router-dom'
 
 export default function Detail() {
   const { id } = useParams()
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/products/${id}/reservation`)
+  }
 
   return (
     <section>
@@ -37,13 +45,37 @@ export default function Detail() {
             </button>
           </div>
         </div>
-        <div className="flex">
-          <img src="/src/assets/react.svg" alt="숙소 사진 2" />
-          <img src="/src/assets/react.svg" alt="숙소 사진 3" />
-          <img src="/src/assets/react.svg" alt="숙소 사진 4" />
-        </div>
+        <ScrollContainer>
+          <div className="whitespace-nowrap">
+            <img
+              src="/src/assets/react.svg"
+              alt="숙소 사진 2"
+              className="w-[126px] inline-block"
+            />
+            <img
+              src="/src/assets/react.svg"
+              alt="숙소 사진 3"
+              className="w-[126px] inline-block"
+            />
+            <img
+              src="/src/assets/react.svg"
+              alt="숙소 사진 4"
+              className="w-[126px] inline-block"
+            />
+            <img
+              src="/src/assets/react.svg"
+              alt="숙소 사진 4"
+              className="w-[126px] inline-block"
+            />
+            <img
+              src="/src/assets/react.svg"
+              alt="숙소 사진 4"
+              className="w-[126px] inline-block"
+            />
+          </div>
+        </ScrollContainer>
       </div>
-      <button>예약하기</button>
+      <Button type="button" text="예약하기" onClick={handleClick} />
     </section>
   )
 }

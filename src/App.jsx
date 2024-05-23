@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Register from './pages/Register'
 import Detail from './pages/Detail'
 import Space from './pages/Space'
+import Reservation from './pages/Reservation'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<Space />} />
         <Route path="/products/:id" element={<Detail />} />
+        <Route path="/products/:id/reservation" element={<Reservation />} />
       </Routes>
     </div>
   )

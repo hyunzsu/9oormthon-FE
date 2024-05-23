@@ -8,6 +8,9 @@ export default function Products() {
       <ProductCard id={2} />
       <ProductCard />
       <ProductCard />
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
     </div>
   )
 }
