@@ -5,7 +5,7 @@ import TextArea from '../components/form/TextArea'
 import { InputEmail, InputText } from '../components/form/Input'
 import { categories } from '../constants/categories'
 import DatePicker from 'react-datepicker'
-import { addDays, addMonths } from 'date-fns'
+import { addMonths } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/Calendar.css' // 커스텀 CSS 파일 import
 import parseDate from '../utils/parseDate'
@@ -61,28 +61,24 @@ const Step1 = ({ onNext }) => {
 }
 
 const Step2 = ({ onNext }) => {
-  const [startDate, setStartDate] = useState(null)
-  const [endDate, setEndDate] = useState(null)
-  const onChange = dates => {
-    const [start, end] = dates
-    setStartDate(start)
-    setEndDate(end)
+  const [start, setStart] = useState(null)
+  const [end, setEnd] = useState(null)
+  const [time, setTime] = useInput('')
+  const onDateChange = dates => {
+    const [startDate, endDate] = dates
+    setStart(startDate)
+    setEnd(endDate)
   }
   const handleNext = () => {
-    if (startDate && endDate) {
-      const start = parseDate(startDate)
-      const end = parseDate(endDate)
-      onNext({ start, end })
-    }
+    const startDate = `${parseDate(start)} ${time}`
+    onNext({ startDate })
   }
   return (
     <section className="flex flex-col relative">
       <Title mainText={'프로그램의 시간과 날짜를\n알려주세요.'} />
       <DatePicker
-        selected={startDate}
-        onChange={onChange}
-        startDate={startDate}
-        endDate={endDate}
+        selected={start}
+        onChange={onDateChange}
         minDate={new Date()}
         maxDate={addMonths(new Date(), 3)}
         selectsRange // 날짜 범위 선택 기능 활성화
@@ -106,7 +102,15 @@ const Step2 = ({ onNext }) => {
         )}
         formatWeekDay={nameOfDay => nameOfDay.substr(0, 3).toUpperCase()}
       />
-      {!startDate || !endDate || (
+      <div className="flex w-full items-center mt-[30px]">
+        <InputText
+          title="시작 시간을 입력해주세요."
+          placeholder="00:00"
+          value={time}
+          onChange={setTime}
+        />
+      </div>
+      {!start || !time || (
         <Button type="button" onClick={handleNext} text="다음" />
       )}
     </section>
