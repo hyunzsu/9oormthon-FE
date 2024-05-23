@@ -1,25 +1,25 @@
 export const categories = {
-  A: {
+  COOKING: {
     name: '요리/조리',
     img: '/src/assets/i-cook.svg',
   },
-  B: {
+  HEALTH: {
     name: '운동',
     img: '/src/assets/i-health.svg',
   },
-  C: {
+  ACTIVITIES: {
     name: '체험/액티비티',
     img: '/src/assets/i-activity.svg',
   },
-  D: {
+  SEMINAR: {
     name: '강연',
     img: '/src/assets/i-lecture.svg',
   },
-  E: {
+  ARTS: {
     name: '예술',
     img: '/src/assets/i-art.svg',
   },
-  F: {
+  ETC: {
     name: '기타',
     img: '/src/assets/i-etc.svg',
   },
