@@ -12,6 +12,7 @@ import parseDate from '../utils/parseDate'
 import { useInput } from '../hooks/useInput'
 import InputImage from '../components/form/InputImage'
 import Location from '../components/Location'
+import { useNavigate } from 'react-router-dom'
 
 const Step1 = ({ onNext }) => {
   const [category, setCategory] = useState('')
@@ -189,6 +190,7 @@ const Step4 = ({ onSubmit }) => {
 }
 
 export default function Register() {
+  const navigate = useNavigate()
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({})
   const handleNext = data => {
@@ -204,7 +206,7 @@ export default function Register() {
       return newData
     })
     console.log(formData)
-    navigate('/register/success')
+    navigate('/ownersuccess')
   }
   useEffect(() => {
     console.log('폼 업뎃!', formData)

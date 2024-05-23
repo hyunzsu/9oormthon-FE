@@ -5,6 +5,7 @@ import Detail from './pages/Detail'
 import Space from './pages/Space'
 import Reservation from './pages/Reservation'
 import UserSuccess from './pages/UserSuccess'
+import OwnerSuccess from './pages/OwnerSuccess'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/ownersuccess" element={<OwnerSuccess />} />
         <Route path="/products" element={<Space />} />
         <Route path="/products/:id" element={<Detail />} />
         <Route path="/products/:id/reservation" element={<Reservation />} />
