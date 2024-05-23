@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import { addDays } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -12,6 +12,7 @@ import {
 import { useInput } from '../hooks/useInput'
 import parseDate from '../utils/parseDate'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function Reservation() {
   const [guestName, handleNameChange] = useInput('')
@@ -19,10 +20,16 @@ export default function Reservation() {
   const [guestEmail, handleEmailChange] = useInput('')
   const [requestText, handleEtcChange] = useInput('')
 
+  const { id } = useParams()
+
+  useEffect(() => {
+    console.log(id)
+  }, [])
   const navigate = useNavigate()
 
   const handleSubmit = () => {
     const formData = {
+      id,
       guestName,
       guestPhone,
       guestEmail,
@@ -37,7 +44,7 @@ export default function Reservation() {
   }
 
   return (
-    <div className="p-[20px]">
+    <div className="mb-[80px] px-[20px]">
       <h1 className="font-bold text-24 pt-[58px] pb-[43px]">
         예약자 정보를 입력해주세요.
       </h1>

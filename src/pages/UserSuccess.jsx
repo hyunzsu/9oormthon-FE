@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../components/Button'
+import { fetchChat } from '../api/api'
 
 export default function UserSuccess() {
   const [reservationData, setReservationData] = useState(null)
 
   useEffect(() => {
+    const fetchChatData = async id => {
+      try {
+        const chatData = await fetchChat({ id })
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
     const data = localStorage.getItem('reservationData')
     if (data) {
-      setReservationData(JSON.parse(data))
+      const parsedData = JSON.parse(data)
+      setReservationData(parsedData)
+      if (parsedData.id) {
+        fetchChatData(parsedData.id)
+      }
     }
   }, [])
 
@@ -26,7 +39,7 @@ export default function UserSuccess() {
           메일로 예약 정보가 발송되었습니다.
         </p>
       </div>
-      <div className="bg-[#F4F4F4] p-[24px] rounded-lg w-full mt-[28px]">
+      <div className="bg-[#F4F4F4] p-[24px] rounded-lg w-full mt-[28px] mb-[80px]">
         <h2 className="text-16 font-semibold mb-4 text-gray-800">
           예약 정보 확인
         </h2>

@@ -66,3 +66,14 @@ export const postReservation = async data => {
     throw error
   }
 }
+
+// 프로그램 오픈 채팅방 조회
+export const fetchChat = async ({ id }) => {
+  try {
+    const response = await axiosInstance.get(`/programs/${id}/chat-link`)
+    return response.data
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    throw error
+  }
+}
