@@ -11,9 +11,9 @@ export default function ProductCard({ id }) {
   return (
     <div
       onClick={handleClick}
-      className="cursor-pointer flex justify-between w-[353px] h-[123px] border-2 border-black mx-auto my-0"
+      className="cursor-pointer flex justify-between w-full h-[123px] border-2 border-black mx-auto my-0"
     >
-      <img src="/src/assets/react.svg" alt="상품 이미지" />
+      <img src="/src/assets/i-cafe.svg" alt="상품 이미지" />
       <div className="flex flex-col">
         <h2 className="font-bold">플레이스 캠프 제주</h2>
         <p>활기차고 열정적인 분위기예요!</p>
