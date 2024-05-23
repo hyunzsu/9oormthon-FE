@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Pretendard;
+  font-weight: 400;
+  src:
+    local('Pretendard Regular'),
+    url('./assets/fonts/Pretendard-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 500;
+  src:
+    local('Pretendard Medium'),
+    url('./assets/fonts/Pretendard-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 700;
+  src:
+    local('Pretendard Bold'),
+    url('./assets/fonts/Pretendard-Bold.woff') format('woff');
+}
+
 .a11yHidden {
   display: inline-block;
   overflow: hidden;

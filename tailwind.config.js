@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        Pretendard: ['Pretendard'],
+      },
       fontSize: {
         26: '1.625rem',
         24: '1.5rem',
