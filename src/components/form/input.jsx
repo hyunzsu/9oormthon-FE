@@ -9,6 +9,7 @@ function Input({ id, name, type, title, placeholder, value, onChange }) {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        className="border border-gray-300 rounded p-2 w-full mt-[14px]"
       />
     </label>
   )
