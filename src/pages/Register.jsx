@@ -59,65 +59,6 @@ const Step1 = ({ onNext }) => {
 }
 
 const Step2 = ({ onNext }) => {
-  const [keywordList, setKeywordList] = useState(
-    keywords.map(keyword => ({
-      keyword,
-      checked: false,
-    })),
-  )
-  const [count, setCount] = useState(0)
-  const handleCheck = e => {
-    const value = e.target.value
-    setKeywordList(prev =>
-      prev.map(item =>
-        item.keyword === value ? { ...item, checked: e.target.checked } : item,
-      ),
-    )
-    if (e.target.checked) {
-      setKeywordList(prev => [...prev, value])
-      setCount(prev => prev + 1)
-    }
-  }
-  const handleNext = () => {
-    const selectedKeywords = keywordList
-      .filter(item => item.checked)
-      .map(item => item.keyword)
-    onNext({ keywords: selectedKeywords })
-  }
-  return (
-    <section className="flex flex-col">
-      <Title
-        mainText={'공간에 대해 알려주세요!'}
-        subText={'공간을 빠르게 파악할 수 있어요. *중복선택가능'}
-      />
-      <div className="flex flex-wrap">
-        {keywords.map(item => (
-          <label key={item}>
-            <input
-              type="checkbox"
-              name="keyword"
-              value={item}
-              checked={keywordList.includes(item)}
-              onChange={handleCheck}
-              className="a11yHidden peer"
-            />
-            <div className="p-2 bg-gray-200 m-2 rounded peer-checked:bg-blue-500 peer-checked:text-white">
-              {item}
-            </div>
-          </label>
-        ))}
-      </div>
-      <Button
-        type="button"
-        onClick={handleNext}
-        text="다음"
-        status={count === 0 && 'disabled'}
-      />
-    </section>
-  )
-}
-
-const Step3 = ({ onNext }) => {
   const [startDate, setStartDate] = useState(null)
   const [endDate, setEndDate] = useState(null)
   const onChange = dates => {
@@ -159,7 +100,7 @@ const Step3 = ({ onNext }) => {
   )
 }
 
-const Step4 = ({ onSubmit }) => {
+const Step3 = ({ onSubmit }) => {
   const [name, handleName] = useInput('')
   const [address, setAddress] = useState('')
   const [description, setDescription] = useInput('')
@@ -216,8 +157,7 @@ export default function Register() {
     <div>
       {step === 1 && <Step1 onNext={handleNext} />}
       {step === 2 && <Step2 onNext={handleNext} />}
-      {step === 3 && <Step3 onNext={handleNext} />}
-      {step === 4 && <Step4 onSubmit={handleSubmit} />}
+      {step === 3 && <Step3 onSubmit={handleSubmit} />}
     </div>
   )
 }
