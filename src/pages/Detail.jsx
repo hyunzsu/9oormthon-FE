@@ -3,9 +3,15 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { useNavigate } from 'react-router-dom'
 
 export default function Detail() {
   const { id } = useParams()
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/products/${id}/reservation`)
+  }
 
   return (
     <section>
@@ -69,7 +75,7 @@ export default function Detail() {
           </div>
         </ScrollContainer>
       </div>
-      <Button type="button" text="예약하기" />
+      <Button type="button" text="예약하기" onClick={handleClick} />
     </section>
   )
 }
