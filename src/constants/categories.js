@@ -1,26 +1,26 @@
 export const categories = {
   COOKING: {
     name: '요리/조리',
-    img: '/src/assets/i-cook.svg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-cook.svg',
   },
   HEALTH: {
     name: '운동',
-    img: '/src/assets/i-health.svg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-health.svg',
   },
   ACTIVITIES: {
     name: '체험/액티비티',
-    img: '/src/assets/i-activity.svg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-activity.svg',
   },
   SEMINAR: {
     name: '강연',
-    img: '/src/assets/i-lecture.svg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-lecture.svgg',
   },
   ARTS: {
     name: '예술',
-    img: '/src/assets/i-art.svg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-art.svg',
   },
   ETC: {
     name: '기타',
-    img: '/src/assets/i-etc.svg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-etc.svg',
   },
 }

@@ -89,7 +89,7 @@ const Step2 = ({ onNext }) => {
         renderCustomHeader={({ monthDate, decreaseMonth, increaseMonth }) => (
           <div className="custom-header">
             <button onClick={decreaseMonth}>
-              <img src="/src/assets/i-arrow.svg" />
+              <img src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-arrow.svg" />
             </button>
             <span className="react-datepicker__current-month">
               {monthDate.toLocaleString('ko-KR', {
@@ -98,7 +98,10 @@ const Step2 = ({ onNext }) => {
               })}
             </span>
             <button onClick={increaseMonth}>
-              <img src="/src/assets/i-arrow.svg" className="rotate-180" />
+              <img
+                src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-arrow.svg"
+                className="rotate-180"
+              />
             </button>
           </div>
         )}

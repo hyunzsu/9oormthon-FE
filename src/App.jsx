@@ -18,6 +18,7 @@ function App() {
         <Route path="/products/:id" element={<Detail />} />
         <Route path="/products/:id/reservation" element={<Reservation />} />
         <Route path="/usersuccess" element={<UserSuccess />} />
+        <Route path="/*" element={<Home />} />
       </Routes>
     </div>
   )
