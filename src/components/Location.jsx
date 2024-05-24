@@ -10,7 +10,7 @@ export default function Location({ address, setAddress }) {
   return (
     <>
       <label onClick={() => setOpenModal(true)} className="relative">
-        <p>빈 공간 위치</p>
+        <p>장소</p>
         <input
           className="border border-gray-300 rounded p-2 w-full mt-[6px]"
           type="text"
@@ -18,7 +18,7 @@ export default function Location({ address, setAddress }) {
           readOnly
         />
         <img
-          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-photo.svg"
+          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/6b2649adefa0466d0184b7e929cdd520b15e7428/src/assets/i-search.svg"
           className="absolute right-[4px] w-[24px] h-[24px] bottom-[9px]"
         />
       </label>

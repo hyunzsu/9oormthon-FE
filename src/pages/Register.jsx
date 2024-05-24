@@ -213,12 +213,12 @@ export default function Register() {
         finalFormData.append(key, formData[key])
       }
     })
-    try {
-      await postProgram(finalFormData)
-      navigate('/hostsuccess')
-    } catch (error) {
-      console.error('POST 실패', error)
-    }
+    // try {
+    //   await postProgram(finalFormData)
+    //   navigate('/hostsuccess')
+    // } catch (error) {
+    //   console.error('POST 실패', error)
+    // }
   }
   useEffect(() => {
     console.log('폼 업뎃!', formData)
