@@ -28,10 +28,22 @@ export default function Detail() {
     navigate(`/products/${id}/reservation`)
   }
 
+  const defaultImage = 'https://via.placeholder.com/1000x500.png?text=No+Image'
+
   return (
     <section className="h-screen overflow-auto">
-      {program.images && program.images.length > 0 && (
-        <img src={program.images[0].url} alt="상품 이미지" className="w-full" />
+      {program.images && program.images.length > 0 ? (
+        <img
+          src={program.images[0].url}
+          alt="상품 이미지"
+          className="w-full h-[351px] object-cover"
+        />
+      ) : (
+        <img
+          src={defaultImage}
+          alt="기본 이미지"
+          className="w-full h-[351px] object-cover"
+        />
       )}
       <div className="flex flex-col gap-[15px] rounded-3xl p-[25px] absolute mt-[-30px] z-30 bg-white w-full">
         <div>

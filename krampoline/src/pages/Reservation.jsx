@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import DatePicker from 'react-datepicker'
-import { addDays } from 'date-fns'
-import 'react-datepicker/dist/react-datepicker.css'
-import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import {
   InputText,
@@ -13,6 +9,7 @@ import { useInput } from '../hooks/useInput'
 import parseDate from '../utils/parseDate'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import { postReservation } from '../api/api'
 
 export default function Reservation() {
   const [guestName, handleNameChange] = useInput('')
@@ -21,13 +18,9 @@ export default function Reservation() {
   const [requestText, handleEtcChange] = useInput('')
 
   const { id } = useParams()
-
-  useEffect(() => {
-    console.log(id)
-  }, [])
   const navigate = useNavigate()
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const formData = {
       id,
       guestName,
@@ -42,6 +35,32 @@ export default function Reservation() {
     localStorage.setItem('reservationData', JSON.stringify(formData))
     navigate('/usersuccess') // 성공 페이지로 라우팅
   }
+
+  // const handleSubmit = async () => {
+  //   const reservationData = {
+  //     programId: parseInt(id),
+  //     guestName,
+  //     guestPhone,
+  //     guestEmail,
+  //     requestText,
+  //   }
+
+  //   try {
+  //     const response = await postReservation(reservationData)
+  //     console.log('서버 응답:', response)
+
+  //     if (response.status === 'success') {
+  //       // 응답이 성공적일 경우 로컬스토리지에 데이터 저장
+  //       localStorage.setItem('reservationData', JSON.stringify(reservationData))
+  //       navigate('/usersuccess') // 성공 페이지로 라우팅
+  //     } else {
+  //       // 응답이 실패한 경우 에러 처리
+  //       console.error('예약 실패:', response.message)
+  //     }
+  //   } catch (error) {
+  //     console.error('예약 중 오류 발생:', error)
+  //   }
+  // }
 
   return (
     <div className="mb-[80px] px-[20px]">
