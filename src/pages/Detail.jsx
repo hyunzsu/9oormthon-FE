@@ -37,11 +37,17 @@ export default function Detail() {
         <div>
           <h2 className="font-bold mb-[15px] text-20">{program.name}</h2>
           <div className="flex gap-[9px]">
-            <img src="/src/assets/i-location.svg" alt="" />
+            <img
+              src="https://raw.githubusercontent.com/sryung1225/olleh-client/7170b292cc8931a4c5a95fcce204e74d96c9a602/src/assets/i-location.svg"
+              alt=""
+            />
             <Link>{program.roadNameAddress}</Link>
           </div>
           <div className="flex gap-[9px] mt-[10px]">
-            <img src="/src/assets/i-time.svg" alt="" />
+            <img
+              src="https://raw.githubusercontent.com/sryung1225/olleh-client/7170b292cc8931a4c5a95fcce204e74d96c9a602/src/assets/i-time.svg"
+              alt=""
+            />
             <div>{program.startDate}시</div>
           </div>
         </div>
