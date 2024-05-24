@@ -13,7 +13,7 @@ export default function HostSuccess() {
     <section className="flex flex-col justify-center items-center p-6 w-full h-screen">
       <div className="text-center">
         <img
-          src="/src/assets/i-host-success.svg"
+          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-host-success.svg"
           alt="프로그램 등록 완료!"
           className="w-24 h-24 mb-4 mx-auto"
         />

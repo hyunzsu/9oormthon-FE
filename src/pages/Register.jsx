@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import TextArea from '../components/form/TextArea'
-import { InputEmail, InputText } from '../components/form/Input'
+import { InputEmail, InputNumber, InputText } from '../components/form/Input'
 import { categories } from '../constants/categories'
 import DatePicker from 'react-datepicker'
 import { addMonths } from 'date-fns'
@@ -89,7 +89,7 @@ const Step2 = ({ onNext }) => {
         renderCustomHeader={({ monthDate, decreaseMonth, increaseMonth }) => (
           <div className="custom-header">
             <button onClick={decreaseMonth}>
-              <img src="/src/assets/i-arrow.svg" />
+              <img src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-arrow.svg" />
             </button>
             <span className="react-datepicker__current-month">
               {monthDate.toLocaleString('ko-KR', {
@@ -98,7 +98,10 @@ const Step2 = ({ onNext }) => {
               })}
             </span>
             <button onClick={increaseMonth}>
-              <img src="/src/assets/i-arrow.svg" className="rotate-180" />
+              <img
+                src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-arrow.svg"
+                className="rotate-180"
+              />
             </button>
           </div>
         )}
@@ -111,7 +114,7 @@ const Step2 = ({ onNext }) => {
           value={time}
           onChange={setTime}
         />
-        <InputText
+        <InputNumber
           title="진행 시간을 입력해주세요."
           placeholder="1"
           value={spendTime}
@@ -165,7 +168,7 @@ const Step3 = ({ onSubmit }) => {
         onChange={setHostDescription}
       />
       <InputImage photos={images} setPhotos={setImages} />
-      <InputText title={'가격'} value={price} onChange={setPrice} />
+      <InputNumber title={'가격'} value={price} onChange={setPrice} />
       <Location address={roadNameAddress} setAddress={setRoadNameAddress} />
       <InputEmail value={hostEmail} onChange={handleEmail} />
       <InputText
@@ -212,7 +215,7 @@ export default function Register() {
     })
     try {
       await postProgram(finalFormData)
-      navigate('/ownersuccess')
+      navigate('/hostsuccess')
     } catch (error) {
       console.error('POST 실패', error)
     }

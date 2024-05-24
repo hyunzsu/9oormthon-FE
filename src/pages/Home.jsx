@@ -5,7 +5,10 @@ export default function Home() {
   return (
     <main
       className="min-h-screen bg-cover bg-top"
-      style={{ backgroundImage: "url('/src/assets/splash.svg')" }}
+      style={{
+        backgroundImage:
+          "url('https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/splash.svg')",
+      }}
     >
       <Link
         to="/products"

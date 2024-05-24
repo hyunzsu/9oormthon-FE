@@ -18,7 +18,7 @@ export default function Location({ address, setAddress }) {
           readOnly
         />
         <img
-          src="/src/assets/i-search.svg"
+          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-photo.svg"
           className="absolute right-[4px] w-[24px] h-[24px] bottom-[9px]"
         />
       </label>

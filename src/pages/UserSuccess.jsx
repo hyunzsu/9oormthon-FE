@@ -31,7 +31,7 @@ export default function UserSuccess() {
     <section className="flex flex-col items-center p-6 rounded-lg max-w-md mx-auto">
       <div className="text-center">
         <img
-          src="/src/assets/i-usersuccess.svg"
+          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-usersuccess.svg"
           alt="Success"
           className="mx-auto mt-[90px] mb-[37px]"
         />
