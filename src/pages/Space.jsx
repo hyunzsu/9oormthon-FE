@@ -12,6 +12,8 @@ export default function Space() {
     const fetchData = async () => {
       try {
         const data = await getPrograms()
+        setPrograms(data.programs)
+        console.log(data.programs)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -20,10 +22,14 @@ export default function Space() {
   }, [])
 
   return (
-    <div className="p-[20px] flex flex-col items-center">
-      <h1>Logo</h1>
-      <Products programs={programs} />
-      <ReserveButton />
-    </div>
+    <>
+      <div className="bg-black w-full flex justify-center py-[20px]">
+        <img src="/src/assets/Logo.svg" alt="" />
+      </div>
+      <div className="p-[20px] flex flex-col items-center">
+        <Products programs={programs} />
+        <ReserveButton />
+      </div>
+    </>
   )
 }
