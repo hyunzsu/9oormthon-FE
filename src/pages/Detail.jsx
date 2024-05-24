@@ -4,24 +4,7 @@ import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { useNavigate } from 'react-router-dom'
-
-export const mockProgramDetail = {
-  id: 1,
-  name: '제주 오름뷰 요가 원데이클래스!',
-  description:
-    '플레이스에 호텔이라는 적막한 이름은 어울리지 않습니다. 플레이스의 그 어디에서도 점잔 빼며 또각또각 걷기를 권하지 않으니까요. 온전히 당신 자신일 수 있는 곳. 플레이스는 놀이, 열정, 낭만 그리고 설렘으로 지어짐',
-  roadNameAddress: '제주 서귀포시 성산읍 독룡암 20',
-  startDate: '5월 24일(금) 오후 6시',
-  spendTime: 120,
-  price: 10000,
-  images: [
-    { order: 1, url: '/src/assets/i-activity.svg' },
-    { order: 2, url: '/src/assets/react.svg' },
-    { order: 3, url: '/src/assets/react.svg' },
-    { order: 4, url: '/src/assets/react.svg' },
-    { order: 5, url: '/src/assets/react.svg' },
-  ],
-}
+import { getProgramId } from '../api/api'
 
 export default function Detail() {
   const { id } = useParams()
@@ -29,8 +12,17 @@ export default function Detail() {
   const [program, setProgram] = useState({})
 
   useEffect(() => {
-    setProgram(mockProgramDetail)
-  }, [])
+    const fetchData = async () => {
+      try {
+        const data = await getProgramId(id)
+        setProgram(data)
+        console.log(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+    fetchData()
+  }, [id])
 
   const handleClick = () => {
     navigate(`/products/${id}/reservation`)
@@ -38,7 +30,6 @@ export default function Detail() {
 
   return (
     <section className="h-screen overflow-auto">
-      <h1>상세 페이지 {id}</h1>
       {program.images && (
         <img src={program.images[0].url} alt="상품 이미지" className="w-full" />
       )}
@@ -51,7 +42,7 @@ export default function Detail() {
           </div>
           <div className="flex gap-[9px] mt-[10px]">
             <img src="/src/assets/i-time.svg" alt="" />
-            <div>5월 24일(금) 오후 6시</div>
+            <div>{program.startDate}시</div>
           </div>
         </div>
         <div>
@@ -60,7 +51,7 @@ export default function Detail() {
         </div>
         <div>
           <h3 className="font-bold mb-[6px]">주최자 소개</h3>
-          <p>저희 프로그램에 참여해서 청년들의 열정을 느껴보세요!</p>
+          <p>{program.hostDescription}</p>
         </div>
         <ScrollContainer>
           {/* <div className="whitespace-nowrap mt-[22px] mb-[70px]">
