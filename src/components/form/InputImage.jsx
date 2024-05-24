@@ -25,7 +25,7 @@ export default function InputImage({ photos, setPhotos }) {
         onClick={handleUploadClick}
         className="border-gray-300 border-[1px] rounded w-[70px] h-[70px] flex flex-col justify-center items-center bg-gray-50 mr-[10px]"
       >
-        <img src="/src/assets/i-photo.svg"></img>
+        <img src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/873e269331f41a51f9e12d2add62d54fce0a8344/src/assets/i-photo.svg"></img>
         <span className="text-gray-400 text-[11px]">{size} / 5</span>
       </button>
       <input

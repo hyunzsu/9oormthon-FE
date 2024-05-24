@@ -24,7 +24,10 @@ export default function Space() {
   return (
     <>
       <div className="bg-black w-full flex justify-center py-[20px]">
-        <img src="/src/assets/Logo.svg" alt="" />
+        <img
+          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/873e269331f41a51f9e12d2add62d54fce0a8344/src/assets/Logo.svg"
+          alt=""
+        />
       </div>
       <div className="p-[20px] flex flex-col items-center">
         <Products programs={programs} />

@@ -13,7 +13,7 @@ export const categories = {
   },
   SEMINAR: {
     name: '강연',
-    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-lecture.svgg',
+    img: 'https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/8eb940957d422668df3b9fba223fe8cfba6fddae/src/assets/i-lecture.svg',
   },
   ARTS: {
     name: '예술',

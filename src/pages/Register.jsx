@@ -47,7 +47,7 @@ const Step1 = ({ onNext }) => {
 
             {category === key && (
               <img
-                src="/src/assets/i-select.svg"
+                src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/b23aee33cd14ae8ef267342f88ac89fce1018c26/src/assets/i-select.svg"
                 className="absolute top-[10px] right-[10px]"
               />
             )}
