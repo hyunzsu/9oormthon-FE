@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../components/Button'
-import { fetchChat } from '../api/api'
+import { fetchChat, getProgramId } from '../api/api'
 
 export default function UserSuccess() {
   const [reservationData, setReservationData] = useState(null)
@@ -8,7 +8,8 @@ export default function UserSuccess() {
   useEffect(() => {
     const fetchChatData = async id => {
       try {
-        const chatData = await fetchChat({ id })
+        const fetchData = await fetchChat({ id })
+        console.log(fetchData)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -51,7 +52,7 @@ export default function UserSuccess() {
           <div className="flex justify-between">
             <span className="text-gray-700">날짜 및 시간</span>
             <span className="text-gray-600">
-              {reservationData.start} ~ {reservationData.end}
+              {/* {reservationData.start} ~ {reservationData.end} */}
             </span>
           </div>
           <div className="flex justify-between">

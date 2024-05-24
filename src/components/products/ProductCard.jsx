@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function ProductCard({ program }) {
-  const { id, name, mainImage } = program
+  const { id, name, mainImage, price, startDate } = program
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -18,7 +18,8 @@ export default function ProductCard({ program }) {
       />
       <div className="flex flex-col mt-[15px] ml-[13px]">
         <h2 className="font-semibold text-16">{name}</h2>
-        <p className="text-12 text-[#666666]">5월 24일(금) 오후 6시</p>
+        <p className="text-12 text-[#666666]">{startDate}</p>
+        <p className="text-12 text-[#666666]">{price}원</p>
       </div>
       <button
         onClick={handleClick}

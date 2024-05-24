@@ -30,10 +30,10 @@ export default function Detail() {
 
   return (
     <section className="h-screen overflow-auto">
-      {program.images && (
+      {program.images && program.images.length > 0 && (
         <img src={program.images[0].url} alt="상품 이미지" className="w-full" />
       )}
-      <div className="border-2 border-black flex flex-col gap-[15px] rounded-3xl p-[25px]">
+      <div className="flex flex-col gap-[15px] rounded-3xl p-[25px] absolute mt-[-30px] z-30 bg-white">
         <div>
           <h2 className="font-bold mb-[15px] text-20">{program.name}</h2>
           <div className="flex gap-[9px]">
@@ -54,41 +54,20 @@ export default function Detail() {
           <p>{program.hostDescription}</p>
         </div>
         <ScrollContainer>
-          {/* <div className="whitespace-nowrap mt-[22px] mb-[70px]">
-            <img
-              src="/src/assets/i-activity.svg"
-              alt="프로그램 사진 2"
-              className="w-[126px] inline-block"
-            />
-            <img
-              src="/src/assets/react.svg"
-              alt="프로그램 사진 3"
-              className="w-[126px] inline-block"
-            />
-            <img
-              src="/src/assets/react.svg"
-              alt="프로그램 사진 4"
-              className="w-[126px] inline-block"
-            />
-            <img
-              src="/src/assets/react.svg"
-              alt="프로그램 사진 4"
-              className="w-[126px] inline-block"
-            />
-          </div> */}
-          {/* <div className="whitespace-nowrap mt-[22px] mb-[70px]">
-            {program.images.map((image, index) => (
-              <img
-                key={index}
-                src={image.url}
-                alt={`프로그램 사진 ${index + 1}`}
-                className="w-[126px] inline-block"
-              />
-            ))}
-          </div> */}
+          <div className="whitespace-nowrap mt-[22px] mb-[70px]">
+            {program.images &&
+              program.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.url}
+                  alt={`프로그램 사진 ${index + 1}`}
+                  className="w-[126px] inline-block"
+                />
+              ))}
+          </div>
         </ScrollContainer>
       </div>
-      <div className="w-full h-[90px] fixed bottom-0 bg-white max-w-[430px] flex items-center justify-between px-[26px]">
+      <div className="w-full h-[90px] fixed bottom-0 bg-white max-w-[430px] flex items-center justify-between px-[26px] z-50">
         <div>
           <span className="font-bold text-20">{program.price}원</span>
           <span> / 1인</span>
