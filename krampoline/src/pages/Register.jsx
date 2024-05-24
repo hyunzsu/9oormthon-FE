@@ -192,27 +192,27 @@ export default function Register() {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({})
   const handleNext = data => {
-    setFormData(prevData => {
-      const newData = { ...prevData, ...data }
-      return newData
-    })
-    setStep(step + 1)
+    setFormData(prevData => ({
+      ...prevData,
+      ...data,
+    }))
+    setStep(prevStep => prevStep + 1)
   }
   const handleSubmit = async data => {
-    setFormData(prevData => {
-      const newData = { ...prevData, ...data }
-      return newData
-    })
+    const mergedData = { ...formData, ...data }
     const finalFormData = new FormData()
-    Object.keys(formData).forEach(key => {
+    Object.keys(mergedData).forEach(key => {
       if (key === 'images') {
-        formData[key].forEach((image, index) => {
+        mergedData[key].forEach((image, index) => {
           finalFormData.append(`images[${index}]`, image)
         })
       } else {
-        finalFormData.append(key, formData[key])
+        finalFormData.append(key, mergedData[key])
       }
     })
+    // for (let pair of finalFormData.entries()) {
+    //   console.log(pair[0], pair[1])
+    // }
     try {
       await postProgram(finalFormData)
       console.log('POST 성공')
