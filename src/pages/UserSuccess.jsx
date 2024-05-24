@@ -51,9 +51,7 @@ export default function UserSuccess() {
           </div>
           <div className="flex justify-between">
             <span className="text-gray-700">날짜 및 시간</span>
-            <span className="text-gray-600">
-              {/* {reservationData.start} ~ {reservationData.end} */}
-            </span>
+            <span className="text-gray-600">5월 24일 (금) 18시</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-700">이메일</span>
