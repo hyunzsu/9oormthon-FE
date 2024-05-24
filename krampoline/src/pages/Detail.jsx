@@ -33,7 +33,7 @@ export default function Detail() {
       {program.images && program.images.length > 0 && (
         <img src={program.images[0].url} alt="상품 이미지" className="w-full" />
       )}
-      <div className="flex flex-col gap-[15px] rounded-3xl p-[25px] absolute mt-[-30px] z-30 bg-white">
+      <div className="flex flex-col gap-[15px] rounded-3xl p-[25px] absolute mt-[-30px] z-30 bg-white w-full">
         <div>
           <h2 className="font-bold mb-[15px] text-20">{program.name}</h2>
           <div className="flex gap-[9px]">
