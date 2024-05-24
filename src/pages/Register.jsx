@@ -213,9 +213,10 @@ export default function Register() {
         finalFormData.append(key, formData[key])
       }
     })
+    navigate('/hostsuccess')
     // try {
     //   await postProgram(finalFormData)
-    //   navigate('/hostsuccess')
+    //
     // } catch (error) {
     //   console.error('POST 실패', error)
     // }
