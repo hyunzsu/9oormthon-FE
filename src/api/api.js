@@ -46,9 +46,9 @@ export const getPrograms = async () => {
 }
 
 // 프로그램 상세 정보 반환
-export const getProgramId = async () => {
+export const getProgramId = async id => {
   try {
-    const response = await axiosInstance.get('/programs/{program-id}')
+    const response = await axiosInstance.get(`/programs/${id}`)
     return response.data
   } catch (error) {
     console.error('Error fetching data:', error)
