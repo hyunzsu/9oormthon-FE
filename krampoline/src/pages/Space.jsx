@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Products from '../components/products/Products'
 import Filter from '../components/products/Filter'
 import Button from '../components/Button'
-import ReserveButton from '../components/products/ReserveButton'
 import { getPrograms } from '../api/api'
 
 export default function Space() {
@@ -29,9 +28,8 @@ export default function Space() {
           alt=""
         />
       </div>
-      <div className="p-[20px] flex flex-col items-center">
+      <div className="p-[20px] flex flex-col items-center bg-[#E7F1F2]">
         <Products programs={programs} />
-        <ReserveButton />
       </div>
     </>
   )

@@ -6,7 +6,7 @@ import Space from './pages/Space'
 import Reservation from './pages/Reservation'
 import UserSuccess from './pages/UserSuccess'
 import HostSuccess from './pages/HostSuccess'
-import Map from './pages/Map'
+import KakaoMap from './pages/Map'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/hostsuccess" element={<HostSuccess />} />
-        <Route path="/map" element={<Map />} />
+        <Route path="/map" element={<KakaoMap />} />
         <Route path="/products" element={<Space />} />
         <Route path="/products/:id" element={<Detail />} />
         <Route path="/products/:id/reservation" element={<Reservation />} />
