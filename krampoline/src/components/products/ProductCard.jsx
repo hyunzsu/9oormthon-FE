@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function ProductCard({ program }) {
-  const { id, name, mainImage, price, startDate } = program
+  const { id, name, mainImage, price, startDate, userName } = program
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -10,23 +10,28 @@ export default function ProductCard({ program }) {
   }
 
   return (
-    <div className="flex w-full h-[123px] bg-[#F6F7F5] rounded-[10px] relative">
-      <img
-        src={mainImage}
-        alt="상품 이미지"
-        className="w-[86px] h-[86px] my-auto mx-[20px] rounded-[7px]"
-      />
-      <div className="flex flex-col mt-[15px] ml-[13px]">
-        <h2 className="font-semibold text-16">{name}</h2>
-        <p className="text-12 text-[#666666]">{startDate}</p>
-        <p className="text-12 text-[#666666]">{price}원</p>
+    <div className="bg-white h-[139px] flex w-full relative border-black border">
+      <div className="w-[371px] flex h-[123px] bg-[#FCF5DA] absolute left-[8px] top-[8px] border-black border">
+        <img
+          src={mainImage}
+          alt="상품 이미지"
+          className="w-[86px] h-[86px] my-auto mx-[20px]"
+        />
+        <div className="flex flex-col mt-[15px] font-extrabold">
+          <h2 className="font-semibold text-16">{name}</h2>
+          <p>
+            <span className="font-regular text-15">with</span>
+            <span className="ml-[5px]">{userName}</span>
+          </p>
+          <p className="text-12 font-medium text-[#666666]">{startDate}</p>
+        </div>
+        <button
+          onClick={handleClick}
+          className="w-[90px] h-[26px] mt-auto ml-auto text-10 mr-[15px] mb-[15px] bg-black text-white absolute bottom-0 right-0"
+        >
+          참여하기
+        </button>
       </div>
-      <button
-        onClick={handleClick}
-        className="w-[90px] h-[26px] mt-auto ml-auto rounded-[16px] text-10 mr-[14px] mb-[16px] bg-black text-white absolute bottom-0 right-0"
-      >
-        참여하기
-      </button>
     </div>
   )
 }

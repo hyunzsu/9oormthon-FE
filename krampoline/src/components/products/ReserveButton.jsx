@@ -20,7 +20,7 @@ export default function Button({ text, type, status, onClick }) {
       disabled={status === 'disabled'}
       onClick={handleClick}
     >
-      내 공간 등록하기
+      프로그램 등록하기
     </button>
   )
 }
