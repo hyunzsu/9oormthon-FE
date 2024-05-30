@@ -129,6 +129,7 @@ const Step2 = ({ onNext }) => {
 }
 
 const Step3 = ({ onSubmit }) => {
+  const [hostName, handleHostName] = useInput('')
   const [programName, handleProgramName] = useInput('')
   const [description, setDescription] = useInput('')
   const [hostDescription, setHostDescription] = useInput('')
@@ -147,11 +148,17 @@ const Step3 = ({ onSubmit }) => {
       roadNameAddress,
       images,
       hostEmail,
+      hostName,
     })
   }
   return (
     <section className="flex flex-col">
       <Title mainText={'프로그램 정보를 입력해주세요.'} />
+      <InputText
+        title={'이름 또는 업체명을 입력해주세요.'}
+        value={hostName}
+        onChange={handleHostName}
+      />
       <InputText
         title={'프로그램 명을 입력해주세요.'}
         value={programName}
