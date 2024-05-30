@@ -8,6 +8,7 @@ export default function KakaoMap() {
   const [programs, setPrograms] = useState([])
   const [selectedMarker, setSelectedMarker] = useState(null)
   const [isOpenModal, setIsOpenModal] = useState(false)
+  const [currentPosition, setCurrentPosition] = useState(null)
 
   const navigate = useNavigate()
 
@@ -41,6 +42,21 @@ export default function KakaoMap() {
     navigate('/register')
   }
 
+  const handleCurrentPositionClick = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const { latitude, longitude } = position.coords
+          setCurrentPosition({ lat: latitude, lng: longitude })
+        },
+        error => {
+          console.error('Error getting current position:', error)
+        },
+      )
+    } else {
+      console.error('Geolocation is not supported')
+    }
+  }
   return (
     <>
       <div className="bg-black w-full flex justify-center py-[20px]">
@@ -51,7 +67,7 @@ export default function KakaoMap() {
       </div>
 
       <Map
-        center={{ lat: 33.4499268, lng: 126.9185555 }}
+        center={currentPosition || { lat: 33.4499268, lng: 126.9185555 }}
         style={{ width: '100%', height: '800px' }}
         level={6}
       >
@@ -88,6 +104,12 @@ export default function KakaoMap() {
       >
         등록하기
       </button>
+      <div onClick={handleCurrentPositionClick} className="relative">
+        <img
+          src="src/assets/i-current.svg"
+          className="z-50 bottom-[50px] right-[20px] absolute"
+        />
+      </div>
     </>
   )
 }

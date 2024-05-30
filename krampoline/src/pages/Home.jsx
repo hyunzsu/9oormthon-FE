@@ -11,7 +11,7 @@ export default function Home() {
       }}
     >
       <Link
-        to="/products"
+        to="/map"
         className="fixed bottom-[34px] font-semibold text-black text-[16px] rounded-[30px] w-[calc(100%-80px)] max-w-[350px] h-[50px] mx-[40px] bg-white leading-[50px] text-center"
       >
         친구 만나러가기
