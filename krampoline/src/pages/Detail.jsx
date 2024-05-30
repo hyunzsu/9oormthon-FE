@@ -47,7 +47,13 @@ export default function Detail() {
       )}
       <div className="flex flex-col gap-[15px] rounded-3xl p-[25px] absolute mt-[-30px] z-30 bg-white w-full">
         <div>
-          <h2 className="font-bold mb-[15px] text-20">{program.name}</h2>
+          <h2 className="font-extrabold text-20">{program.programName}</h2>
+          <p className="mb-[15px]">
+            <span className="font-regular text-15">with</span>
+            <span className="ml-[5px] font-extrabold text-16">
+              {program.userName}
+            </span>
+          </p>
           <div className="flex gap-[9px]">
             <img
               src="https://raw.githubusercontent.com/sryung1225/olleh-client/7170b292cc8931a4c5a95fcce204e74d96c9a602/src/assets/i-location.svg"
@@ -60,7 +66,7 @@ export default function Detail() {
               src="https://raw.githubusercontent.com/sryung1225/olleh-client/7170b292cc8931a4c5a95fcce204e74d96c9a602/src/assets/i-time.svg"
               alt=""
             />
-            <div>{program.startDate}시</div>
+            <div>{program.startDate}</div>
           </div>
         </div>
         <div>
