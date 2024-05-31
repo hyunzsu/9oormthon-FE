@@ -106,8 +106,8 @@ export default function KakaoMap() {
       </button>
       <div onClick={handleCurrentPositionClick} className="relative">
         <img
-          src="src/assets/i-current.svg"
-          className="z-50 bottom-[50px] right-[20px] absolute"
+          src="https://raw.githubusercontent.com/workmeong-shimmeong/olleh-client/fe5e854eb330a8f3d3d7e11ab0b634e35a404755/krampoline/src/assets/i-current.svg"
+          className="z-50 bottom-[200px] right-[20px] absolute"
         />
       </div>
     </>
