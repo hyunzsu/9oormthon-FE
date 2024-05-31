@@ -85,7 +85,7 @@ export default function Detail() {
                   key={index}
                   src={image.url}
                   alt={`프로그램 사진 ${index + 1}`}
-                  className="w-[126px] inline-block"
+                  className="w-[136px] h-[168px] inline-block rounded-[10px] mr-[10px]"
                 />
               ))}
           </div>
