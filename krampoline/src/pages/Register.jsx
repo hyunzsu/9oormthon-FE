@@ -221,7 +221,7 @@ export default function Register() {
     //   console.log(pair[0], pair[1])
     // }
     try {
-      await postProgram(finalFormData)
+      // await postProgram(finalFormData)
       console.log('POST 성공')
       navigate('/hostsuccess')
     } catch (error) {
