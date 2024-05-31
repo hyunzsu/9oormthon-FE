@@ -11,7 +11,7 @@ export default function ProductCard({ program }) {
 
   return (
     <div className="bg-white h-[139px] flex w-full relative border-black border">
-      <div className="w-[371px] flex h-[123px] bg-[#FCF5DA] absolute left-[8px] top-[8px] border-black border">
+      <div className="w-full flex bg-[#FCF5DA] border-black border m-[8px]">
         <img
           src={mainImage}
           alt="상품 이미지"
@@ -27,7 +27,7 @@ export default function ProductCard({ program }) {
         </div>
         <button
           onClick={handleClick}
-          className="w-[90px] h-[26px] mt-auto ml-auto text-10 mr-[15px] mb-[15px] bg-black text-white absolute bottom-0 right-0"
+          className="w-[90px] h-[26px] mt-auto ml-auto text-10 mr-[20px] mb-[20px] bg-black text-white absolute bottom-0 right-0"
         >
           참여하기
         </button>
