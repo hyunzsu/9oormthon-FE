@@ -21,9 +21,8 @@
 - vision: 청년 커뮤니티 활성화를 통한 제주 지역 발전 도모
 
 ## 개발 기간
-
-[kakao x goorm] 10nd 9oormthon
-카카오와 구름이 주관한 제 10회 구름톤에 참여해 진행한 프로젝트입니다.
+### [kakao x goorm] 10nd 9oormthon
+카카오와 구름이 주관한 제 10회 [구름톤](https://9oormthon.goorm.io/)에 참여해 진행한 프로젝트입니다.
 
 - 개발 기간 : 2024.05.23~ 2024.05.25
 
@@ -32,7 +31,7 @@
 <div align= "start">
   <span>
   <img src="https://img.shields.io/badge/-React-%2361DAFB?style=for-the-badge&logo=React&logoColor=white">
-	<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
   <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
   <img src="https://img.shields.io/badge/figma-F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
   <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black">
