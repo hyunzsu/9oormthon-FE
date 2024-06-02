@@ -39,9 +39,22 @@
   </span>
 </div>
 
-## 주요 기능
+### API
+
+- kakao map API : 제주도 내 프로그램 위치를 지도에 표시
+- Geolocation API : 사용자 위치 정보를 활용해 주변 프로그램 추천
+- 카카오 우편번호 검색 API : 호스트 등록 시 프로그램 운영 장소 주소 입력
+
+### 주요 기능
+
+1. 지도 기반 소셜 프로그램 탐색 (카카오맵 API를 활용한 제주도 내 프로그램 위치 표시)
+2. 사용자 위치 기반 주변 프로그램 추천 (Geolocation API 활용)
+3. 프로그램 상세 정보 확인
+4. 유저 프로그램 예약
+5. 호스트 프로그램 등록
+
+## Service Flow
 
 ![image](https://github.com/workmeong-shimmeong/olleh-client/assets/108773199/306597ad-0574-4ef2-af4b-156cb824e27d)
 ![image](https://github.com/workmeong-shimmeong/olleh-client/assets/108773199/90f5dc71-7500-4efd-8186-8525d81d7f6e)
 ![image](https://github.com/workmeong-shimmeong/olleh-client/assets/108773199/f2f89b72-de1c-439c-8efd-dfa60b17237b)
-ㅍ
